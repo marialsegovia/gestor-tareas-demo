@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resumen de Tareas</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Resumen de Tareas</h1>
+    <a href="/">&larr; Volver a la lista de tareas</a>
+  </header>
+
+  <main>
+    <section class="tarjeta-frase">
+      <p>"<%= frase %>"</p>
+    </section>
+
+    <section class="estadisticas">
+      <p><strong><%= totalTareas %></strong> tareas en total</p>
+      <p><strong><%= totalCompletadas %></strong> completadas</p>
+    </section>
+
+    <% ['alta', 'media', 'baja'].forEach(function (prioridad) { %>
+      <section class="grupo-prioridad">
+        <h2>Prioridad <%= prioridad %></h2>
+        <ul>
+          <% (porPrioridad[prioridad] || []).forEach(function (tarea) { %>
+            <li class="<%= tarea.completada ? 'completada' : '' %>">
+              <%= tarea.titulo %> — vence el <%= tarea.vencimientoLegible %>
+            </li>
+          <% }); %>
+          <% if (!(porPrioridad[prioridad] || []).length) { %>
+            <li class="vacio">No hay tareas con esta prioridad.</li>
+          <% } %>
+        </ul>
+      </section>
+    <% }); %>
+  </main>
+</body>
+</html>

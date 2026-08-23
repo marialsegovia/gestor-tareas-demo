@@ -1,0 +1,6 @@
+[
+  { "id": 1, "titulo": "Preparar reporte mensual", "prioridad": "alta", "vencimiento": "2026-08-25", "completada": false },
+  { "id": 2, "titulo": "Responder correos de soporte", "prioridad": "media", "vencimiento": "2026-08-24", "completada": false },
+  { "id": 3, "titulo": "Revisar diseno de la nueva pagina", "prioridad": "baja", "vencimiento": "2026-08-30", "completada": true },
+  { "id": 4, "titulo": "Actualizar documentacion interna", "prioridad": "media", "vencimiento": "2026-08-27", "completada": false }
+]

@@ -1,0 +1,136 @@
+/* public/style.css
+   Estilos visuales de la aplicacion: colores, espaciados y tipografia.
+   No contiene ninguna logica, solo apariencia. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2933;
+  margin: 0;
+  padding: 0 1.5rem 3rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #d9e0e7;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+header a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#formulario-nueva-tarea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#formulario-nueva-tarea input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+}
+
+#formulario-nueva-tarea input,
+#formulario-nueva-tarea select,
+#formulario-nueva-tarea button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #cbd2d9;
+  font-size: 0.95rem;
+}
+
+#formulario-nueva-tarea button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#lista-tareas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#lista-tareas li {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+#lista-tareas li.completada span {
+  text-decoration: line-through;
+  color: #9aa5b1;
+}
+
+#lista-tareas li button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #d64545;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.tarjeta-frase {
+  background: #eef2ff;
+  border-left: 4px solid #2563eb;
+  padding: 1rem;
+  border-radius: 6px;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.estadisticas {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.grupo-prioridad {
+  margin-bottom: 1.5rem;
+}
+
+.grupo-prioridad h2 {
+  font-size: 1.05rem;
+  text-transform: capitalize;
+  border-bottom: 1px solid #d9e0e7;
+  padding-bottom: 0.3rem;
+}
+
+.grupo-prioridad li.completada {
+  text-decoration: line-through;
+  color: #9aa5b1;
+}
+
+.grupo-prioridad li.vacio {
+  color: #9aa5b1;
+  font-style: italic;
+  list-style: none;
+}

@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+npm-debug.log*
+
+# Documento privado: no debe compartirse ni subirse junto con el proyecto.
+NOTAS-PRIVADAS-DISENO.md

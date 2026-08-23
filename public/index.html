@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gestor de Tareas</h1>
+    <a href="/resumen">Ver resumen &rarr;</a>
+  </header>
+
+  <main>
+    <form id="formulario-nueva-tarea">
+      <input type="text" id="campo-titulo" placeholder="Nueva tarea..." required />
+      <select id="campo-prioridad">
+        <option value="alta">Alta</option>
+        <option value="media" selected>Media</option>
+        <option value="baja">Baja</option>
+      </select>
+      <input type="date" id="campo-vencimiento" />
+      <button type="submit">Agregar</button>
+    </form>
+
+    <ul id="lista-tareas"></ul>
+  </main>
+
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
