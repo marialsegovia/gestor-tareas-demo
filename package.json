@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^1.18.1",
     "body-parser": "1.18.3",
-    "ejs": "2.5.7",
+    "ejs": "^3.1.10",
     "express": "4.16.4",
     "jquery": "3.4.1",
     "lodash": "4.17.11",
