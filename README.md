@@ -47,6 +47,21 @@ las tareas agrupadas por prioridad.
 
 Para detener el servidor, vuelve a la terminal y presiona `Ctrl + C`.
 
+### Si no encuentras la terminal donde quedó corriendo
+
+Si cerraste la ventana de la terminal sin presionar `Ctrl + C` primero, el
+servidor puede quedar corriendo "de fondo" sin que lo veas, y ocupando el
+puerto 3000 (por lo que la próxima vez que hagas `npm start` puede fallar
+diciendo que el puerto ya está en uso). Para revisar si eso pasó y cerrarlo:
+
+```bash
+# Revisa si hay algún proceso usando el puerto 3000
+lsof -ti:3000
+
+# Si el comando anterior mostró algún número, ciérralo con:
+lsof -ti:3000 | xargs kill -9
+```
+
 ### Reiniciar los datos de ejemplo
 
 Si quieres volver a dejar la aplicación con datos de prueba "de fábrica",
