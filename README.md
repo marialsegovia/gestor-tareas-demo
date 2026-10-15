@@ -174,3 +174,5 @@ volver a generarse en cualquier momento con `npm install`.
 | `npm start`             | Arranca el servidor en `http://localhost:3000`             |
 | `npm run dev`           | Igual que `npm start`, pero reinicia solo si cambia el código |
 | `npm run seed`          | Regenera los datos de ejemplo                              |
+
+<!-- prueba de CI -->
