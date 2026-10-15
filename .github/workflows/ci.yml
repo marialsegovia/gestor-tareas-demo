@@ -1,0 +1,62 @@
+# .github/workflows/ci.yml
+#
+# CI (Integracion Continua) muy simple: en cada Pull Request, instala las
+# dependencias, levanta el servidor y verifica que las paginas principales
+# respondan correctamente. Sirve para detectar si una actualizacion de
+# dependencias rompio la aplicacion en tiempo de ejecucion, antes de que
+# ese cambio se fusione a la rama principal.
+
+name: CI - Prueba de humo
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Arrancar el servidor
+        run: npm start &
+
+      - name: Esperar a que el servidor responda
+        run: |
+          for i in $(seq 1 10); do
+            if curl -s -o /dev/null http://localhost:3000/; then
+              echo "Servidor arriba."
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "El servidor no respondio a tiempo."
+          exit 1
+
+      - name: Verificar pagina principal (/)
+        run: |
+          codigo=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/)
+          echo "Codigo recibido: $codigo"
+          test "$codigo" = "200"
+
+      - name: Verificar API de tareas (/api/tareas)
+        run: |
+          codigo=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/tareas)
+          echo "Codigo recibido: $codigo"
+          test "$codigo" = "200"
+
+      - name: Verificar pagina de resumen (/resumen)
+        run: |
+          codigo=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/resumen)
+          echo "Codigo recibido: $codigo"
+          test "$codigo" = "200"
